@@ -1,5 +1,2 @@
-# SQLITE CRUD
-Without update and delete rn cause it's same procedure as create!
-
-https://www.youtube.com/watch?v=girsuXz0yA8
-https://www.sqlitetutorial.net/sqlite-python/insert/
+# SIMPLE SQLITE SCRIPT SCHEDULED BY GITHUB ACTIONS
+This repo only wants to be a super simple test of sqlite and github actions!

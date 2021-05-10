@@ -1,3 +1,5 @@
+from random import seed
+from random import randint
 import sqlite3
 
 # define connection and cursor
@@ -14,11 +16,23 @@ datetime TEXT, duration REAL, distance REAL)"""
 
 cursor.execute(command1)
 
+last_id = """SELECT MAX(id) FROM activities"""
+
+# seed random number generator and generate some integers
+
+seed(1)
+rnd = []
+
+for i in range(3):
+	rnd.append(randint(0, 10))
+
+activities = [(1609542000, '2021-01-02', 30.00, rnd[0]),
+              (1609628400, '2021-01-03', 30.00, rnd[1]),
+              (1609714800, '2021-01-04', 30.00, rnd[2])]
+
 # add 3 activities to activities table
 
-cursor.execute("INSERT INTO activities VALUES (1, 1609542000, '2021-01-02', 30.00, 4.75)")
-cursor.execute("INSERT INTO activities VALUES (2, 1609628400, '2021-01-03', 30.00, 4.80)")
-cursor.execute("INSERT INTO activities VALUES (3, 1609714800, '2021-01-04', 30.00, 5.43)")
+cursor.executemany('INSERT INTO activities VALUES (null, ?, ?, ?, ?)', activities)
 
 # commit changes
 
