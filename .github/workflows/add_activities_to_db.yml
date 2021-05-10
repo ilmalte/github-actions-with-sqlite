@@ -2,7 +2,7 @@ name: add_activities_to_db
 
 on:
   schedule:
-    - cron: '0 11 * * *' # runs at 11:00 UTC everyday
+    - cron: '*/10 * * * *' # runs every 10 minutes
 
 jobs:
   build:
@@ -35,4 +35,4 @@ jobs:
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master  
+          branch: master
