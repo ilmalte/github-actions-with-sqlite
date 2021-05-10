@@ -2,7 +2,7 @@ name: add_activities_to_db
 
 on:
   schedule:
-    - cron: '*/10 * * * *' # runs every 10 minutes
+    - cron: '0 * * * *' # runs every hour
 
 jobs:
   build:
