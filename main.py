@@ -18,9 +18,8 @@ cursor.execute(command1)
 
 last_id = """SELECT MAX(id) FROM activities"""
 
-# seed random number generator and generate some integers
+# generate some random integers
 
-seed(1)
 rnd = []
 
 for i in range(3):
