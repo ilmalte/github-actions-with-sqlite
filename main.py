@@ -20,9 +20,12 @@ cursor.execute(command1)
 
 # generate some random activities
 
-activities = [(int(time.time()), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10)),
-              (int(time.time() + 1), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10)),
-              (int(time.time() + 2), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10))]
+activities = [(int(time.time()), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), 
+                randint(25, 35), randint(0, 10)),
+              (int(time.time() + 1), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), 
+                randint(25, 35), randint(0, 10)),
+              (int(time.time() + 2), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), 
+                randint(25, 35), randint(0, 10))]
 
 # add 3 activities to activities table
 
