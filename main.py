@@ -1,5 +1,7 @@
 from random import seed
 from random import randint
+from datetime import datetime
+import time
 import sqlite3
 
 # define connection and cursor
@@ -16,18 +18,11 @@ datetime TEXT, duration REAL, distance REAL)"""
 
 cursor.execute(command1)
 
-last_id = """SELECT MAX(id) FROM activities"""
+# generate some random activities
 
-# generate some random integers
-
-rnd = []
-
-for i in range(3):
-	rnd.append(randint(0, 10))
-
-activities = [(1609542000, '2021-01-02', 30.00, rnd[0]),
-              (1609628400, '2021-01-03', 30.00, rnd[1]),
-              (1609714800, '2021-01-04', 30.00, rnd[2])]
+activities = [(int(time.time()), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10)),
+              (int(time.time() + 1), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10)),
+              (int(time.time() + 2), datetime.today().strftime('%Y-%m-%d-%H:%M:%S'), randint(25, 35), randint(0, 10))]
 
 # add 3 activities to activities table
 
