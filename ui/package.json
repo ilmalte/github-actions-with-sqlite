@@ -1,4 +1,12 @@
 {
+  "scripts": {
+    "build": "tsc && npm run build:cp-db",
+    "build:cp-db": "mkdir -p ./dist/db/ && cp ../db/** ./dist/db/",
+    "build:server": "./node_modules/.bin/http-server",
+    "build:webpack": "./node_modules/.bin/webpack",
+    "dev": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:server",
+    "type": "tsc --noEmit"
+  },
   "dependencies": {
     "sql.js-httpvfs": "^0.8.8"
   },

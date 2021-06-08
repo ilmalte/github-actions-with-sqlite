@@ -6,6 +6,10 @@ const workerUrl = new URL(
 );
 const wasmUrl = new URL("sql.js-httpvfs/dist/sql-wasm.wasm", import.meta.url);
 
+async function randomInteger(min: number, max: number) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 async function load() {
   const worker = await createDbWorker(
     [
@@ -13,7 +17,7 @@ async function load() {
         from: "inline",
         config: {
           serverMode: "full",
-          url: "https://github.com/ilmalte/github-actions-with-sqlite/blob/sql.js-httpvfs/db/running_activities.sqlite3",
+          url: "./db/running_activities.sqlite3",
           requestChunkSize: 4096,
         },
       },
@@ -22,9 +26,15 @@ async function load() {
     wasmUrl.toString()
   );
 
-  const result = await worker.db.query(`select * from activities`);
+  const maxIdResult = await worker.db.exec(`select max(id) from activities`);
+  const max = maxIdResult[0].values[0][0];
+  console.log("max id in db: ", max);
 
-  document.body.textContent = JSON.stringify(result);
+  const randomId = await randomInteger(1, max);
+  console.log("random id to select: ", randomId);
+  const activityResult = await worker.db.exec(`select * from activities where id = ?`, [randomId]);
+
+  document.body.textContent = JSON.stringify(activityResult);
 }
 
 load();
