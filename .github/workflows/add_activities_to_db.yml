@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: execute py script # run main.py to add activities to db
-        run: python main.py
+        run: python ./script/main.py
           
       - name: commit files
         run: |

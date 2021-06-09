@@ -6,7 +6,7 @@ import sqlite3
 
 # define connection and cursor
 
-connection = sqlite3.connect('db/running_activities.db')
+connection = sqlite3.connect('db/running_activities.sqlite3')
 
 cursor = connection.cursor()
 

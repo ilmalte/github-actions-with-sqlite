@@ -1,0 +1,20 @@
+{
+  "scripts": {
+    "build": "tsc && npm run build:cp-db",
+    "build:cp-db": "mkdir -p ./dist/db/ && cp ../db/** ./dist/db/",
+    "build:server": "./node_modules/.bin/http-server",
+    "build:webpack": "./node_modules/.bin/webpack",
+    "dev": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:server",
+    "type": "tsc --noEmit"
+  },
+  "dependencies": {
+    "sql.js-httpvfs": "^0.8.8"
+  },
+  "devDependencies": {
+    "http-server": "^0.12.3",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0"
+  }
+}
