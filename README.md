@@ -8,6 +8,9 @@ You only need to launch the following commands in your Linux terminal (WSL as we
 
 `
 npm install     # if needed
+`
+
+`
 npm run dev
 `
 
