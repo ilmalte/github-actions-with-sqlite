@@ -5,6 +5,7 @@
     "build:server": "./node_modules/.bin/http-server",
     "build:webpack": "./node_modules/.bin/webpack",
     "dev": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:server",
+    "deploy": "npm run build && master -d dist -b gh-pages",
     "type": "tsc --noEmit"
   },
   "dependencies": {
