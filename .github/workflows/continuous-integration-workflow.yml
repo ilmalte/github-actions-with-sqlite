@@ -17,7 +17,6 @@ jobs:
         with:
           node-version: "10.x"
 
-      - run: cd ./ui
-      - run: npm install && npm run deploy
+      - run: cd ./ui && npm install && npm run deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
