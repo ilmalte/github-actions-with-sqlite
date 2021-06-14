@@ -1,11 +1,12 @@
 {
   "scripts": {
-    "build": "tsc && npm run build:cp-db",
+    "build": "tsc && npm run build:cp-db && npm run build:cp-index",
+    "build:cp-index": "cp index.html ./dist/index.html",
     "build:cp-db": "mkdir -p ./dist/db/ && cp ../db/** ./dist/db/",
     "build:server": "./node_modules/.bin/http-server",
     "build:webpack": "./node_modules/.bin/webpack",
     "dev": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:server",
-    "deploy": "npm run build && gh-pages -d dist -b gh-pages",
+    "deploy": "npm run build && gh-pages -d dist",
     "type": "tsc --noEmit"
   },
   "dependencies": {
