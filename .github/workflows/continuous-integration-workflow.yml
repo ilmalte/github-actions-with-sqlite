@@ -32,5 +32,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          FOLDER: .ui/dist
+          FOLDER: ./ui/dist
           BRANCH: gh-pages
