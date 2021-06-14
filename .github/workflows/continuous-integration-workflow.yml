@@ -1,4 +1,4 @@
-name: Github Page
+name: Github Page deploy
 
 on:
   push:
@@ -11,6 +11,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - name: Commit author
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
 
       - name: Set-up Node
         uses: actions/setup-node@v1
