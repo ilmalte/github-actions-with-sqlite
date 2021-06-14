@@ -22,6 +22,15 @@ jobs:
         with:
           node-version: "10.x"
 
-      - run: cd ./ui && npm install && npm run deploy
-        env:
+      - name: Install and Build
+        run: |
+          cd ./ui
+          npm install
+          npm run build-prod
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FOLDER: .ui/dist
+          BRANCH: gh-pages
