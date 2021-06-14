@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "tsc && npm run build:cp-db && npm run build:cp-index",
-    "build-prod": "tsc && npm run build:cp-db && build:webpack && npm run build:cp-index-prod",
+    "build-prod": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:cp-index-prod",
     "build-dev": "tsc && npm run build:cp-db && npm run build:cp-index",
     "build:cp-index": "cp index.html ./dist/index.html",
     "build:cp-index-prod": "cp index.prod.html ./dist/index.html",
