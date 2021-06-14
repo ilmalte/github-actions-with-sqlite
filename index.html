@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 
 <title>Minimal sql.js-httpvfs demo</title>
-<!-- <script src="./dist/bundle.js"></script> -->
+<!-- PROD: -->
 <script src="./bundle.js"></script>
-<div>Hello World!</div>
+<script>
+
+    // Check if WebAssembly is supported for the target browser
+    const supported = (() => {
+        try {
+            if (typeof WebAssembly === "object"
+                && typeof WebAssembly.instantiate === "function") {
+                const module = new WebAssembly.Module(Uint8Array.of(0x0, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00));
+                if (module instanceof WebAssembly.Module)
+                    return new WebAssembly.Instance(module) instanceof WebAssembly.Instance;
+            }
+        } catch (e) {
+        }
+        return false;
+    })();
+    console.log(supported ? "WebAssembly is supported" : "WebAssembly is not supported");
+
+</script>
+<div>Hello World! If you don't see anything probably your browser doesn't support WebAssembly</div>
+<h1>PROD ENV</h1>
