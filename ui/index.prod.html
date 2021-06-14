@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 
 <title>Minimal sql.js-httpvfs demo</title>
-<!-- DEV: -->
-<script src="./dist/bundle.js"></script>
 <!-- PROD: -->
-<!-- <script src="./bundle.js"></script> -->
+<script src="./bundle.js"></script>
 <script>
 
     // Check if WebAssembly is supported for the target browser
@@ -21,12 +19,6 @@
         return false;
     })();
     console.log(supported ? "WebAssembly is supported" : "WebAssembly is not supported");
-
-
-    // TODO: Dynamically load bundle.js based on env
-    // var isProduction = process.env.NODE_ENV == 'production';
-    // var src = isProduction ? "./bundle.js" : "./dist/bundle.js";
-    // document.write('<script src="' + src + '"><\/script>');
 
 </script>
 <div>Hello World! If you don't see anything probably your browser doesn't support WebAssembly</div>

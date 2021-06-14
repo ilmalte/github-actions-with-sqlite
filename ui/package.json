@@ -1,16 +1,21 @@
 {
   "scripts": {
     "build": "tsc && npm run build:cp-db && npm run build:cp-index",
+    "build-prod": "tsc && npm run build:cp-db && npm run build:cp-index-prod",
+    "build-dev": "tsc && npm run build:cp-db && npm run build:cp-index",
     "build:cp-index": "cp index.html ./dist/index.html",
+    "build:cp-index-prod": "cp index.prod.html ./dist/index.html",
     "build:cp-db": "mkdir -p ./dist/db/ && cp ../db/** ./dist/db/",
     "build:server": "./node_modules/.bin/http-server",
     "build:webpack": "./node_modules/.bin/webpack",
-    "dev": "tsc && npm run build:cp-db && npm run build:webpack && npm run build:server",
-    "deploy": "npm run build && gh-pages -d dist",
+    "dev": "npm run build-dev && npm run build:webpack && npm run build:server",
+    "deploy": "npm run build-prod && gh-pages -d dist",
     "type": "tsc --noEmit"
   },
   "dependencies": {
-    "sql.js-httpvfs": "^0.8.8"
+    "sql.js-httpvfs": "^0.8.8",
+    "normalize-url": ">=4.5.1",
+    "ecstatic": ">=4.1.3"
   },
   "devDependencies": {
     "gh-pages": "^3.2.0",
