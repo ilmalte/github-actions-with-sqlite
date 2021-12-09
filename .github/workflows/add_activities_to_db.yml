@@ -2,7 +2,7 @@ name: add_activities_to_db
 
 on:
   schedule:
-    - cron: '0 */6 * * *' # runs every 6 hours
+    - cron: '0 0 1 1 *' # runs every year, so sad '0 0 5 31 2 ?' is not recognized as cron
 
 jobs:
   build:
