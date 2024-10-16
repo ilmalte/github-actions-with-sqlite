@@ -37,3 +37,7 @@ npm run build-prod
 Thanks to a Github Action, every push on master launches a job that deployes a build on the branch "gh-pages".
 In this way you can have a working version of this repo on the following url:
 https://ilmalte.github.io/github-actions-with-sqlite/
+
+## I recently discovered this official documentation with more resources about this topic
+Here you can find the documentation for the SQLite project's WebAssembly- and JavaScript-related APIs, which enable the use of sqlite3 in modern WASM-capable browsers:
+https://sqlite.org/wasm/doc/trunk/index.md
